@@ -79,6 +79,7 @@ DATABASES = {
 }
 '''
 
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
