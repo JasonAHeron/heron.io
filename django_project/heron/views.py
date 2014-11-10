@@ -15,6 +15,9 @@ class Index(TemplateView):
 
 def deploy(request):
 	if request.POST:
-		call(["/home/django/django_project/heron/deploy.sh"])
+		try:
+			call(["/home/django/django_project/heron/deploy.sh"])
+		except Exception as e:
+			exception = e
 		
-	return render_to_response('index.html')
+	return render_to_response('index.html', {'exception': exception})
