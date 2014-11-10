@@ -15,8 +15,6 @@ class Index(TemplateView):
 
 def deploy(request):
 	if request.POST:
-		call("touch", "~/working.txt")
-	else:
-		call("touch", "~/not_working.txt")
+		call(["/home/django/django_project/heron/deploy.sh"])
 		
 	return render_to_response('index.html')
