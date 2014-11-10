@@ -14,12 +14,13 @@ class Index(TemplateView):
 
 
 def deploy(request):
-	e = "nothing"
-	if request.POST:
+	ex = "nothing"
+	if request.method == 'POST':
+		ex = "post"
 		try:
 			call(["/bin/sh","/home/django/django_project/heron/deploy.sh"])
-			e = "called"
+			ex = "called"
 		except Exception as e:
-			e = e
+			ex = e
 		
-	return render(request, 'index.html', {'e': e})
+	return render(request, 'deploy.html', {'ex': ex})
