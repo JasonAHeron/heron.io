@@ -2,3 +2,4 @@
 .profile
 .cache
 *.pyc
+*.sqlite3
