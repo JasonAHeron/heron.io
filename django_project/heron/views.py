@@ -1,3 +1,4 @@
+from .models import Feedback
 from subprocess import call
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
@@ -10,9 +11,10 @@ from django.contrib.auth.models import User
 
 def index(request):
 	if request.method == 'POST':
-		print request.POST.get('feedback')
-
-
+		body = request.POST.get('feedback')
+		F = Feedback(body = body)
+		F.save()
+		
 	return render(request, 'index.html')
 
 def deploy(request):
