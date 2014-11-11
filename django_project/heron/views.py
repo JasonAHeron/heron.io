@@ -8,10 +8,12 @@ from django.core.urlresolvers import reverse
 from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 
-class Index(TemplateView):
-  template_name = 'index.html'
+def index(request):
+	if request.method == 'POST':
+		print request.POST.get('feedback')
 
 
+	return render(request, 'index.html')
 
 def deploy(request):
 	ex = "nothing"
